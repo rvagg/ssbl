@@ -1,6 +1,6 @@
 {
   "name": "ssbl",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "Super-simple blog loader. Load markdown formatted blog files from a folder as a handy data structure for rendering",
   "type": "module",
   "main": "ssbl.js",
