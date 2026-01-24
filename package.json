@@ -35,7 +35,7 @@
   },
   "homepage": "https://github.com/rvagg/ssbl#readme",
   "dependencies": {
-    "brucedown": "^2.0.0"
+    "brucedown": "^2.0.1"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",
