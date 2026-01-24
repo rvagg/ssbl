@@ -1,105 +1,91 @@
-const fs        = require('fs')
-    , path      = require('path')
-    , brucedown = require('brucedown')
+import { readdir, readFile, stat } from 'node:fs/promises'
+import { join } from 'node:path'
+import brucedown from 'brucedown'
 
-    // for each file contents, split out the JSON header and return that
-    // as a parsed spec and a body
-var processOne = function (content, callback) {
-      var json = ''
+/**
+ * @typedef {Object} PostSpec
+ * @property {Date} date
+ * @property {boolean} [draft]
+ * @property {string} [title]
+ * @property {string} [author]
+ * @property {string} [name]
+ */
 
-      // expect the header to contain a JSON block
-      content = content.split('\n')
-      if (/^```/.test(content[0]))
-        content.shift() // optional && extraneous ```
-      if (!/^\{/.test(content[0]))
-        return callback(new Error('Not a JSON header: ' + content[0]))
-      while (content.length && !/^\}/.test(content[0]))
-        json += content.shift()
-      json += content.shift()
-      if (content.length && /^```/.test(content[0]))
-        content.shift() // optional & extraneous ```
+/**
+ * @typedef {Object} Post
+ * @property {PostSpec} spec - The parsed JSON metadata
+ * @property {string} page - The rendered HTML content
+ */
 
-      try {
-        json = JSON.parse(json)
-      } catch (e) {
-        return callback(new Error('JSON error: ' + e))
-      }
+/**
+ * Parse a single markdown file's content, extracting JSON header and rendering body
+ * @param {string} content - Raw file content
+ * @returns {Promise<Post>}
+ */
+async function processOne (content) {
+  let json = ''
 
-      if (!json.date)
-        return callback(new Error('no "date" property in spec'))
-      json.date = new Date(json.date)
+  // Expect the header to contain a JSON block
+  const lines = content.split('\n')
+  if (/^```/.test(lines[0])) {
+    lines.shift() // optional && extraneous ```
+  }
+  if (!/^\{/.test(lines[0])) {
+    throw new Error('Not a JSON header: ' + lines[0])
+  }
+  while (lines.length && !/^\}/.test(lines[0])) {
+    json += lines.shift()
+  }
+  json += lines.shift()
+  if (lines.length && /^```/.test(lines[0])) {
+    lines.shift() // optional & extraneous ```
+  }
 
-      brucedown(content.join('\n'), function (err, content) {
-        if (err) return callback(err)
-        callback(null, { spec: json, page: content })
-      })
+  /** @type {PostSpec} */
+  let spec
+  try {
+    spec = JSON.parse(json)
+  } catch (e) {
+    throw new Error('JSON error: ' + e)
+  }
+
+  if (!spec.date) {
+    throw new Error('no "date" property in spec')
+  }
+  spec.date = new Date(spec.date)
+
+  const page = await brucedown(lines.join('\n'))
+  return { spec, page }
+}
+
+/**
+ * Load and process all markdown files from a directory
+ * @param {string} postsDir - Path to directory containing markdown files
+ * @returns {Promise<Post[]>} Array of posts sorted by date descending, drafts excluded
+ */
+export default async function ssbl (postsDir) {
+  const list = await readdir(postsDir)
+
+  // Filter to .md files only
+  const files = []
+  for (const file of list) {
+    const filePath = join(postsDir, file)
+    const fileStat = await stat(filePath)
+    if (fileStat.isFile() && /\.md$/.test(file)) {
+      files.push(filePath)
     }
+  }
 
-    // for each file contents, process and return them all as a bunch
-  , processAll = function (contents, callback) {
-      var r = 0
-      contents.forEach(function (content, i) {
-        processOne(content, function (err, data) {
-          if (err) {
-            callback && callback(err)
-            callback = null
-            return
-          }
-          contents[i] = data
-          if (++r == contents.length && callback) {
-            contents = contents
-              .filter(function (c) {
-                return !c.spec.draft
-              }).sort(function (c1, c2) {
-                return c1.spec.date < c2.spec.date ? 1 : -1
-              })
+  // Process all files in parallel
+  const posts = await Promise.all(
+    files.map(async (file) => {
+      const content = await readFile(file, 'utf-8')
+      return processOne(content)
+    })
+  )
 
-            callback(null, contents)
-          }
-        })
-      })
-    }
-
-    // load the contents of each file
-  , load = function (files, callback) {
-      var contents = []
-      files.forEach(function (file) {
-        fs.readFile(file, 'utf-8', function (err, content) {
-          if (err) {
-            callback && callback(err)
-            callback = null
-            return
-          }
-          contents.push(content.toString())
-          if (contents.length == files.length && callback)
-            processAll(contents, callback)
-        })
-      })
-    }
-
-  , builder = function (newsDir, callback) {
-      // start off by listing files in the news directory
-      fs.readdir(newsDir, function (err, list) {
-        if (err) return callback(err)
-
-        var files = []
-          , r     = 0
-
-        list.forEach(function (file) {
-          file = path.join(newsDir, file)
-          fs.stat(file, function (err, stat) {
-            if (err) {
-              callback && callback(err)
-              callback = null
-              return
-            }
-            if (stat.isFile() && /\.md$/.test(file))
-              files.push(file)
-            if (++r == list.length && callback)
-              load(files, callback)
-          })
-        })
-      })
-    }
-
-module.exports = builder
+  // Filter out drafts and sort by date descending
+  return posts
+    .filter((post) => !post.spec.draft)
+    .sort((a, b) => (a.spec.date < b.spec.date ? 1 : -1))
+}
