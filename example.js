@@ -1,11 +1,12 @@
-const ssbl = require('./')
-    , path = require('path')
+import { dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
+import ssbl from './ssbl.js'
 
-ssbl(path.join(__dirname, 'example'), function (err, data) {
-  if (err) throw err
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
-  console.log('This is the data structure generated from the ./example/ directory:')
-  console.log('-------------------------------------------------------------------')
-  console.log(JSON.stringify(data, null, 2))
-  console.log('-------------------------------------------------------------------')
-})
+const data = await ssbl(join(__dirname, 'example'))
+
+console.log('This is the data structure generated from the ./example/ directory:')
+console.log('-------------------------------------------------------------------')
+console.log(JSON.stringify(data, null, 2))
+console.log('-------------------------------------------------------------------')
