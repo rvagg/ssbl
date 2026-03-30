@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/rvagg/ssbl/compare/v2.0.1...v2.0.2) (2026-03-30)
+
+### Trivial Changes
+
+* **deps-dev:** bump typescript from 5.9.3 to 6.0.2 ([53b7893](https://github.com/rvagg/ssbl/commit/53b78936868ec7e17fa0995359483e2063a879f6))
+* update deps & upgrade to typescript 6 ([9ad7920](https://github.com/rvagg/ssbl/commit/9ad79208b421d1fc0f12cdd652aff1d4af0d3746))
+
 ## [2.0.1](https://github.com/rvagg/ssbl/compare/v2.0.0...v2.0.1) (2026-01-24)
 
 ### Trivial Changes
