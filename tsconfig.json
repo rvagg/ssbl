@@ -25,13 +25,8 @@
     "skipLibCheck": true,
     "stripInternal": true,
     "resolveJsonModule": true,
-    "baseUrl": ".",
     "emitDeclarationOnly": true,
-    "paths": {
-      "ssbl": [
-        "ssbl.js"
-      ]
-    }
+    "types": ["node"]
   },
   "include": [
     "ssbl.js"
