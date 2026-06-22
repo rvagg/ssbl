@@ -1,3 +1,9 @@
+## [2.0.3](https://github.com/rvagg/ssbl/compare/v2.0.2...v2.0.3) (2026-06-22)
+
+### Trivial Changes
+
+* **deps:** bump actions/checkout from 6 to 6.0.3 ([#6](https://github.com/rvagg/ssbl/issues/6)) ([802365c](https://github.com/rvagg/ssbl/commit/802365cbf29dff71596130c4f17612042730c788))
+
 ## [2.0.2](https://github.com/rvagg/ssbl/compare/v2.0.1...v2.0.2) (2026-03-30)
 
 ### Trivial Changes
