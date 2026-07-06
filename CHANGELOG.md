@@ -1,3 +1,9 @@
+## [2.0.5](https://github.com/rvagg/ssbl/compare/v2.0.4...v2.0.5) (2026-07-06)
+
+### Trivial Changes
+
+* **deps-dev:** bump @types/node from 25.9.4 to 26.0.1 ([#8](https://github.com/rvagg/ssbl/issues/8)) ([2efcb16](https://github.com/rvagg/ssbl/commit/2efcb16ae36cb278262dd7aaaffa2b8a6a93343d))
+
 ## [2.0.4](https://github.com/rvagg/ssbl/compare/v2.0.3...v2.0.4) (2026-06-29)
 
 ### Trivial Changes
