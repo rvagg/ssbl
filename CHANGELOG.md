@@ -1,3 +1,5 @@
+## [2.0.7](https://github.com/rvagg/ssbl/compare/v2.0.6...v2.0.7) (2026-07-20)
+
 ## [2.0.6](https://github.com/rvagg/ssbl/compare/v2.0.5...v2.0.6) (2026-07-06)
 
 ## [2.0.5](https://github.com/rvagg/ssbl/compare/v2.0.4...v2.0.5) (2026-07-06)
