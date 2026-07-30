@@ -1,3 +1,9 @@
+## [2.0.11](https://github.com/rvagg/ssbl/compare/v2.0.10...v2.0.11) (2026-07-30)
+
+### Trivial Changes
+
+* downgrade broken changelog maker, backfill entries ([#14](https://github.com/rvagg/ssbl/issues/14)) ([5d09377](https://github.com/rvagg/ssbl/commit/5d093772145e171ae67a5733e3ad7676adf07bb5))
+
 ## [2.0.10](https://github.com/rvagg/ssbl/compare/v2.0.9...v2.0.10) (2026-07-29)
 
 ### Trivial Changes
