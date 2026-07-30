@@ -1,12 +1,33 @@
 ## [2.0.10](https://github.com/rvagg/ssbl/compare/v2.0.9...v2.0.10) (2026-07-29)
 
+### Trivial Changes
+
+* **deps-dev:** bump typescript from 6.0.3 to 7.0.2 ([1355254](https://github.com/rvagg/ssbl/commit/135525420b62bb86a3b12b56b0ed1d6cd9cdd73e))
+* updates for ts@7 ([dc1683c](https://github.com/rvagg/ssbl/commit/dc1683c3bdf9ca59d8a9070c0a1a96ebc58e6c52))
+
 ## [2.0.9](https://github.com/rvagg/ssbl/compare/v2.0.8...v2.0.9) (2026-07-27)
+
+### Trivial Changes
+
+* **deps:** bump the github-actions-minor-patch group with 2 updates ([#13](https://github.com/rvagg/ssbl/issues/13)) ([73cf7fe](https://github.com/rvagg/ssbl/commit/73cf7fe28e313209e15b78d9008cd8db008d758b))
 
 ## [2.0.8](https://github.com/rvagg/ssbl/compare/v2.0.7...v2.0.8) (2026-07-21)
 
+### Trivial Changes
+
+* **ci:** slow down dependabot, add depsound, pin actions by hash ([#12](https://github.com/rvagg/ssbl/issues/12)) ([87e9ef8](https://github.com/rvagg/ssbl/commit/87e9ef82e944aef9c76fea869eea93c60bb25756))
+
 ## [2.0.7](https://github.com/rvagg/ssbl/compare/v2.0.6...v2.0.7) (2026-07-20)
 
+### Trivial Changes
+
+* **deps:** bump actions/setup-node from 6 to 7 ([#10](https://github.com/rvagg/ssbl/issues/10)) ([134debd](https://github.com/rvagg/ssbl/commit/134debd6b04d346b9540c0b25bff4e6d6c96e981))
+
 ## [2.0.6](https://github.com/rvagg/ssbl/compare/v2.0.5...v2.0.6) (2026-07-06)
+
+### Trivial Changes
+
+* **deps-dev:** bump conventional-changelog-conventionalcommits ([#9](https://github.com/rvagg/ssbl/issues/9)) ([29878f7](https://github.com/rvagg/ssbl/commit/29878f75dd66d8b31fdb6ebba9cf8e4dc79bf0e2))
 
 ## [2.0.5](https://github.com/rvagg/ssbl/compare/v2.0.4...v2.0.5) (2026-07-06)
 
