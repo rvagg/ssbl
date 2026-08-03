@@ -1,3 +1,9 @@
+## [2.0.14](https://github.com/rvagg/ssbl/compare/v2.0.13...v2.0.14) (2026-08-03)
+
+### Trivial Changes
+
+* **deps-dev:** bump @semantic-release/git from 10.0.1 to 11.0.1 ([#18](https://github.com/rvagg/ssbl/issues/18)) ([ef30ba2](https://github.com/rvagg/ssbl/commit/ef30ba2d4465a01d946432aab072fc2fda1d977c))
+
 ## [2.0.13](https://github.com/rvagg/ssbl/compare/v2.0.12...v2.0.13) (2026-08-03)
 
 ### Trivial Changes
