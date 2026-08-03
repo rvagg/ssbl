@@ -1,3 +1,9 @@
+## [2.0.12](https://github.com/rvagg/ssbl/compare/v2.0.11...v2.0.12) (2026-08-03)
+
+### Trivial Changes
+
+* **deps:** bump the github-actions-minor-patch group with 2 updates ([#15](https://github.com/rvagg/ssbl/issues/15)) ([9868c12](https://github.com/rvagg/ssbl/commit/9868c12170d15db400243957a27afa1124f56e62))
+
 ## [2.0.11](https://github.com/rvagg/ssbl/compare/v2.0.10...v2.0.11) (2026-07-30)
 
 ### Trivial Changes
