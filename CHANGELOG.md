@@ -1,3 +1,9 @@
+## [2.0.13](https://github.com/rvagg/ssbl/compare/v2.0.12...v2.0.13) (2026-08-03)
+
+### Trivial Changes
+
+* **deps-dev:** bump @semantic-release/changelog from 6.0.3 to 7.0.0 ([#16](https://github.com/rvagg/ssbl/issues/16)) ([16b75e3](https://github.com/rvagg/ssbl/commit/16b75e36d65fe270cf6f0136d4ab689ad6aba098))
+
 ## [2.0.12](https://github.com/rvagg/ssbl/compare/v2.0.11...v2.0.12) (2026-08-03)
 
 ### Trivial Changes
