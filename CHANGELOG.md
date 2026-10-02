@@ -1,3 +1,9 @@
+## [2.0.15](https://github.com/rvagg/ssbl/compare/v2.0.14...v2.0.15) (2026-10-02)
+
+### Trivial Changes
+
+* **deps-dev:** bump mocha from 11.8.0 to 12.0.2 ([#20](https://github.com/rvagg/ssbl/issues/20)) ([19c34b9](https://github.com/rvagg/ssbl/commit/19c34b93d3b475195e343b59c9fe8044e532f693))
+
 ## [2.0.14](https://github.com/rvagg/ssbl/compare/v2.0.13...v2.0.14) (2026-08-03)
 
 ### Trivial Changes
