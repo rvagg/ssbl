@@ -1,3 +1,9 @@
+## [2.0.16](https://github.com/rvagg/ssbl/compare/v2.0.15...v2.0.16) (2026-10-19)
+
+### Trivial Changes
+
+* **deps:** bump actions/setup-node ([#22](https://github.com/rvagg/ssbl/issues/22)) ([a077baa](https://github.com/rvagg/ssbl/commit/a077baaa4bc040564f7e52dd6ca15fcc296c13d3))
+
 ## [2.0.15](https://github.com/rvagg/ssbl/compare/v2.0.14...v2.0.15) (2026-10-02)
 
 ### Trivial Changes
